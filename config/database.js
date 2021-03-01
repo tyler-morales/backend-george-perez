@@ -1,10 +1,14 @@
 module.exports = ({ env }) => ({
-  defaultConnection: 'default',
+  defaultConnection: "default",
   connections: {
     default: {
-      connector: 'mongoose',
-      settings: {},
-      options: {},
+      connector: "mongoose",
+      settings: {
+        uri: env("DATABASE_URI"),
+      },
+      options: {
+        ssl: true,
+      },
     },
   },
 });
